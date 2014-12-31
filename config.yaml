@@ -1,0 +1,5 @@
+name: 你在sae的网站id
+version: 1
+
+handle:
+- passwdaccess: if(path ~ "/r/") passwd "后台用户名:后台密码"

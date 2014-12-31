@@ -1,0 +1,72 @@
+html{background:#EEE;}
+
+
+
+.header{overflow:hidden;zoom:1;line-height:3em;background:#333;padding:0 1em;}
+.header li{float:left;padding:0 .2em;}
+.header li a{color:#CCC;padding:0 1em;display:block;}
+.header li a:hover{color:#EEE;background:#222;}
+.header li a.a{color:#FFF;background:#000;}
+.enbox{margin-right:300px;}
+.entype{width:300px;position:absolute;top:0;right:1em;}
+
+input,textarea,button{}
+
+form{padding:0 1em 1em 0;position:relative;}
+.em{padding:1em 0 0 1em;}/*
+	box-sizing:border-box;*/
+
+.category label{display:block;padding:0 0 0 2.5em;line-height:2.5em;cursor:pointer;position:relative;}
+.category label:hover{background:#FFF;border-radius:.5em;}
+
+
+textarea.text{min-height:600px;overflow:hidden;padding-bottom:3em;}
+
+input[type="checkbox"],
+input[type="radio"]{
+-webkit-appearance:none;appearance:none;
+background:#DDD;
+position:absolute;left:.6em;top:.6em;margin:0;
+width:1em;height:1em;border-radius:1px;cursor:pointer;
+box-sizing:border-box;}
+
+input[type="radio"]{border-radius:50%;}
+/*
+input[type="radio"]:checked::after,
+input[type="checkbox"]:checked::after{font-family:sans-serif;font-weight:bold;
+content:'√';color:#333;display:block;}
+*/
+input[type=checkbox]:active,
+	input[type=radio]:active{border-color:#666;background:#666;}
+
+
+input[type=checkbox]:checked,
+	input[type=radio]:checked{background:#333;}/*border:3px solid #CCC;*/
+
+input[type=checkbox]:focus{border-color:#666;}
+
+
+#pace{position:absolute;position:fixed;top:0;height:2px;background:#F92672;z-index:1;}
+
+
+.text{border:0;margin:0;padding:.8em;width:100%;max-width:100%;display:block;
+	background:#F8F8F8;
+	box-sizing:border-box;}
+.text:focus{background:#F8F8F8;}
+
+input.text,
+button.text{padding:.5em .8em;}
+button.text{cursor:pointer;}
+button.text.b{background:#069;color:#FFF;}
+button.text.r:hover{background:#900;color:#FFF;}
+
+
+
+#p ul{padding:1em 0;}
+#p li{padding:.5em 0;}
+#p li a{display:block;line-height:2em;padding:0 2em;}
+.ctrl{padding:0 1em;font-size:.8em;line-height:1;color:#999;}
+.ctrl i{display:inline-block;font-style:normal;vertical-align:top;padding:0 .5em;}
+.more{display:block;text-align:center;font-size:3em;line-height:2em;}
+
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>写文章</title>
+<link rel="stylesheet" href="../i/i.css">
+
+<link rel="stylesheet" href="../i/md/md.css">
+<link rel="stylesheet" href="r.css">
+
+<ul class="header">
+	<li><a href="add-post.html" class="a">写文章</a></li>
+	<li><a href="index.html">管理文章</a></li>
+</ul>
+<form action="x.php?a=ap" method="post"><!--autocomplete="off"-->
+	<div class="enbox">
+		<div class="entry">
+			<div class="em"><input class="text" name="title" placeholder="文章标题"></div>
+			<div class="em"><textarea class="text" rows="20" name="text" placeholder="文章正文"></textarea></div>
+		</div>
+	</div>
+	<div class="entype">
+		<div class="em"><div class="text category"></div></div>
+		<div class="em"><input class="text" name="cover" placeholder="封面图（微博图片ID）"></div>
+		<div class="em"><label class="text">作者<div class="author"></div></label></div>
+		<div class="em"><button class="text b" type="submit">发布文章</button></div>
+		<div class="em"><button class="text" id="pr-btn">预览</button></div>
+	</div>
+</form>
+
+
+<script src="../i/itorr.m.js"></script>
+<script src="../inf.js"></script>
+
+<script src="../i/md/md.js"></script>
+<script>
+var h='';
+for(var key in INF.c)
+	if(INF.c[key][1])
+		h+='<label><input type="radio" name="category" value="'+key+'"'+(key=='nichijou'?' checked':'')+'>'+INF.c[key][0]+'</label>'
+
+$('.category').innerHTML=h;
+
+
+h='<select name="authorId">';
+for(var uid=0,l=INF.u.length;uid<l;uid++)
+	h+='<option value="'+uid+'"'+(uid==1?' selected':'')+'>'+INF.u[uid]+'</option>'
+
+$('.author').innerHTML=h+'</select>';
+
+
+
+
+var I=$.S('input');
+for(var i in I){
+	var _I=I[i];
+	if(_I.type=='hidden')
+		continue;
+					
+	_I.onfocus=
+	_I.onchange=
+	_I.onkeypress=
+	_I.onkeyup=
+	_I.onkeydown=function(){
+		localStorage.setItem('aP'+this.name,this.value);
+	};
+	
+
+	if(!_I.value)
+		_I.value=localStorage.getItem('aP'+_I.name);
+}
+
+
+
+var F=$('form'),
+In=$('textarea');
+In.onfocus=In.onchange=In.onkeypress=In.onkeyup=function(){
+	localStorage.setItem('aPtext',this.value);
+	var _c=this.value.match(/\n/g)||[];
+	this.setAttribute('rows',_c.length+6);
+};
+
+if(!In.value)
+	In.value=localStorage.getItem('aPtext');
+In.onfocus();
+In.onkeydown=function(){
+	In.onkeyup();
+	if(window.event.ctrlKey&&window.event.keyCode==13){
+		F.onsubmit();
+		return false;
+	}
+};
+
+
+
+$.onsubmit(F,function(r){
+	if(r.error)
+		return alert(r.error);
+	if(r.pid){
+		alert('发布成功');
+		window.location.href='edit-post.html#'+r.pid;
+
+		for(var i in I){
+			var _I=I[i];
+			
+			_I.value='';
+			_I.onkeydown();
+		}
+	}
+
+
+
+});
+
+var C=new MD.C();
+
+$('#pr-btn').onclick=function(){
+	var w=window.open('','_blank','');
+	w.document.open('text/html','replace');
+	w.opener=null;
+	var b=location.href.match(/^[\w\:\/]+/);
+	w.document.write('<!DOCTYPE html>\
+<link rel="stylesheet" href="'+b+'i/md/md.css">\
+<link rel="stylesheet" href="'+b+'~/pr.css"><h1>'+F.title.value+'</h1><div id="p">\
+'+C.makeHtml($.ex($('textarea').value)));
+	w.document.close();
+	return false;
+};
+/*
+I=$.S('input,textarea');
+F.onsubmit=function(){
+	var P=[];
+	for(var i=0,l=I.length;i<l;i++){
+		var _I=I[i];
+		console.log(_I);
+		P.push(_I.name+'='+encodeURIComponent(_I.value));
+	}
+	$.x('x/?a=addc',P.join('&'),function(c){});
+};*/
+
+</script>
+
+<script src="up.js"></script>

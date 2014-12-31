@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>编辑文章</title>
+<link rel="stylesheet" href="../i/i.css">
+
+<link rel="stylesheet" href="../i/md/md.css">
+<link rel="stylesheet" href="r.css">
+
+<ul class="header">
+	<li><a href="add-post.html">写文章</a></li>
+	<li><a href="index.html" class="a">管理文章</a></li>
+</ul>
+<form action="x.php?a=ep" method="post"><!--autocomplete="off"-->
+	<div class="enbox">
+		<div class="entry">
+			<div class="em"><input class="text" name="title" placeholder="文章标题"></div>
+			<div class="em"><textarea class="text" rows="20" name="text" placeholder="文章正文"></textarea></div>
+		</div>
+	</div>
+	<div class="entype">
+		<div class="em"><div class="text category"></div></div>
+		<div class="em"><input class="text" name="cover" placeholder="封面图（微博图片ID）"></div>
+		<div class="em"><label class="text">作者<div class="author"></div></label></div>
+		<div class="em"><button class="text b" type="submit">编辑文章</button></div>
+		<div class="em"><button class="text" id="pr-btn">预览</button></div>
+		<div class="em"><button class="text r" id="d-btn">删除文章（慎重）</button></div>
+	</div>
+	<input type="hidden" name="pid">
+</form>
+
+
+<script src="../i/itorr.m.js"></script>
+<script src="../inf.js"></script>
+
+<script src="../i/md/md.js"></script>
+<script>
+var h='';
+for(var key in INF.c)
+	if(INF.c[key][1])
+		h+='<label><input type="radio" name="category" value="'+key+'"'+(key=='nichijou'?' checked':'')+'>'+INF.c[key][0]+'</label>'
+
+$('.category').innerHTML=h;
+
+
+h='<select name="authorId">';
+for(var uid=0,l=INF.u.length;uid<l;uid++)
+	h+='<option value="'+uid+'"'+(uid==1?' selected':'')+'>'+INF.u[uid]+'</option>'
+
+$('.author').innerHTML=h+'</select>';
+
+
+
+var F=$('form'),
+In=$('textarea');
+In.onfocus=In.onchange=In.onkeypress=In.onkeyup=function(){
+	var _c=this.value.match(/\n/g)||[];
+	this.setAttribute('rows',_c.length+6);
+};
+
+
+In.onfocus();
+In.onkeydown=function(){
+	In.onkeyup();
+	if(window.event.ctrlKey&&window.event.keyCode==13){
+		F.onsubmit();
+		return false;
+	}
+};
+
+
+$.onsubmit(F,function(r){
+	if(r.error)
+		return alert(r.error);
+	if(r.pid)
+		alert('修改成功，文章id为'+r.pid);
+});
+
+
+var C=new MD.C();
+
+$('#pr-btn').onclick=function(){
+	var w=window.open('','_blank','');
+	w.document.open('text/html','replace');
+	w.opener=null;
+	var b=location.href.match(/^[\w\:\/]+/);
+	w.document.write('<!DOCTYPE html>\
+<link rel="stylesheet" href="'+b+'i/md/md.css">\
+<link rel="stylesheet" href="'+b+'~/pr.css"><h1>'+F.title.value+'</h1><div id="p">\
+'+C.makeHtml($.ex($('textarea').value)));
+	w.document.close();
+	return false;
+};
+
+
+$('#d-btn').onclick=function(){
+	if(!confirm('删除文章将不可恢复！真的要删除么？')){
+		return false
+	}else{
+		
+		$.x('x.php?a=dp','pid='+location.hash.match(/[0-9]{1,9}/),function(i){
+			if(i.error)
+				return alert(i.error);
+
+			alert('删除成功');
+			location.href='list-post.html';
+
+		});
+	}
+	return false;
+}
+
+$.x('../x/?a=p&id='+location.hash.match(/[0-9]{1,9}/),function(o){
+	F.title.value=o.title;
+	In.value=o.text;
+	F.cover.value=o.cover;
+	F.pid.value=o.pid;
+	In.onfocus();
+	$('.category input[value="'+o.category+'"]').checked='checked';
+	$.S('option')[o.authorId].selected=true
+});
+
+</script>
+
+<script src="up.js"></script>

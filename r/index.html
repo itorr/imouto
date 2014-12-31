@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>管理文章</title>
+<link rel="stylesheet" href="../i/i.css">
+<link rel="stylesheet" href="r.css">
+
+<ul class="header">
+	<li><a href="add-post.html">写文章</a></li>
+	<li><a href="index.html" class="a">管理文章</a></li>
+</ul>
+<div id="m">
+	<div id="p"></div>
+	<span id="more" class="h">加载更多...</span>
+</div>
+
+
+<script src="../i/itorr.m.js"></script>
+<script src="../inf.js"></script>
+
+<script>
+var oTime=2000000000,
+loadMore=function(){
+	$('#more').className='h';
+	$.x('../x/?a=h&n=20&s='+oTime,function(_o){
+		var o,h='';
+		for(var i in _o){
+			o=_o[i];
+			h+='<li><a href="edit-post.html#'+o.pid+'"><b>【'+INF.c[o.category][0]+'】</b>'+o.title.replace(/^(\s|)【.+】/,'')+'\
+			<p class="ctrl">\
+				<i>'+INF.u[o.authorId]+'</i>\
+				<i>'+$.re_date(o.created)+'</i>\
+			</p></a></li>';
+		}
+		var ul=$.D.m('ul');
+		ul.innerHTML=h;
+		$.D.a($('#p'),ul);
+
+
+
+		if(oTime>o.created)
+			oTime=o.created;
+
+		if(_o.length!=20){
+			$.D.d($('#more'));
+		}
+
+		$('#more').className='';
+	});
+};
+loadMore();
+
+$('#more').onmouseover=
+$('#more').onclick=function(){
+	loadMore();
+	return false;
+}
+</script>

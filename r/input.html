@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>卜卜口</title>
+<link rel="stylesheet" href="../i/md/md.css">
+<style>
+body,textarea{font:16px serif;}
+textarea:focus,input:focus{outline:none;}
+
+form{padding:1em;}
+#text{height:600px;width:800px;border:0;width:100%	;
+	-moz-box-sizing:border-box;box-sizing:border-box;
+	border-radius:.5em;padding:1em;background:#FEC;}
+
+.wmd-panel
+{
+	margin-left: 25%;
+	margin-right: 25%;
+	width: 50%;
+	min-width: 500px;
+}
+
+.wmd-input 
+{ 
+	height: 300px;
+	width: 100%;
+	background-color: Gainsboro;
+	border: 1px solid DarkGray;
+}
+
+.wmd-preview 
+{ 
+	background-color: #c0e0ff; 
+}
+
+.wmd-button-row {
+	overflow:hidden;zoom:1;
+}
+
+
+
+.wmd-spacer{
+	margin:0 14px;
+	display: inline-block; 
+	list-style: none;
+}
+
+.wmd-button {
+	padding:5px;
+	display: inline-block;
+	list-style: none;
+	cursor: pointer;
+}
+
+
+
+.wmd-prompt-background
+{
+	background-color:#000;
+}
+
+.wmd-prompt-dialog{
+	position:absolute;z-index:1001;top:100px;
+	padding:1em;
+	background:#FFF;
+}
+
+.wmd-prompt-dialog > div {
+	font-size: 0.8em;
+	font-family: arial,helvetica,sans-serif;
+}
+
+
+.wmd-prompt-dialog > form > input[type="text"] {
+	border: 1px solid #999999;
+	color: black;
+}
+
+.wmd-prompt-dialog > form > input[type="button"]{
+	border: 1px solid #888888;
+	font-family: trebuchet MS,helvetica,sans-serif;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+
+
+</style>
+
+<form>
+	<div class="editor" id="wmd-button-bar"></div>
+	<textarea id="text" name="text"></textarea>
+	<div id="p"></div>
+</form>
+
+
+
+<script>var $={}</script>
+<script src="../i/iTorr.m.js"></script>
+<script src="../i/md/md.js"></script>
+<script src="../i/md/md.e.js"></script>
+<script>
+!function(){
+	var 
+	converter=new MD.C(),
+	editor=new MD.Editor(converter,'');
+
+
+
+	// 自动跟随
+	converter.hooks.chain('postConversion',function(html){
+		// clear special html tags
+
+		html = html.replace(/<\/?(\!doctype|html|head|body|link|title|input|select|button|textarea|style|noscript)[^>]*>/ig,function(all){
+			return all.replace(/&/g,'&amp;')
+				.replace(/</g,'&lt;')
+				.replace(/>/g,'&gt;')
+				.replace(/'/g,'&#039;')
+				.replace(/"/g,'&quot;');
+		});
+
+		// clear hard breaks
+		html = html.replace(/\s*((?:<br>\n)+)\s*(<\/?(?:p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|address|form|fieldset|iframe|hr|legend|article|section|nav|aside|hgroup|header|footer|figcaption|li|dd|dt)[^\w])/gm,'$2');
+
+		if (html.indexOf('<!--more-->') > 0){
+			var parts = html.split(/\s*<\!\-\-more\-\->\s*/),
+				summary = parts.shift(),
+				details = parts.join('');
+
+			html = '<div class="summary">' + summary + '</div>'
+				+ '<div class="details">' + details + '</div>';
+		}
+
+		return html;
+	});
+
+
+	editor.hooks.chain('enterFakeFullScreen',function(){
+		/*高度适应*/
+	});
+
+	editor.hooks.chain('enterFullScreen',function(){
+		/*高度适应*/
+	});
+
+	editor.hooks.chain('exitFullScreen',function(){
+		/*高度适应*/
+	});
+
+	editor.run();
+}();
+</script>

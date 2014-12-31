@@ -1,0 +1,49 @@
+.vsco #m{width:auto;}
+.vsco #more{width:700px;margin:0 auto;}
+
+#grid{margin:40px auto;position:relative;padding-bottom:40px;min-height:300px;
+	transition:width .3s ease;}
+.grid{position:absolute;width:300px;
+	left:1%;top:1%;
+	transition:left .3s ease,top .3s ease;}
+	/*background:#DDD;*/
+
+.grid .co{display:block;background:url(loading.gif) 50% 50% no-repeat;width:300px;overflow:hidden;}
+.grid .co img{display:block;}
+
+
+#pp{max-width:800px;margin:0 auto;text-align:center;}
+.pp-text{padding:60px 0;}
+#pp i{margin:0 auto;}
+
+#pp .img{max-width:100%;min-height:200px;}
+
+.co{position:relative;}
+.co img{
+	-webkit-transition:opacity .3s ease,-webkit-transform .3s ease;
+	-moz-transition:opacity .3s ease,-moz-transform .3s ease;
+	transition:opacity .3s ease,transform .3s ease;}
+
+.co-pr{position:absolute;top:0;z-index:-1;opacity:0;line-height:100%;height:100%;width:100%;text-align:center;
+	color:#FFF;background:rgba(255,255,255,.2);pointer-events:none;}
+.co-pr i{position:absolute;top:50%;left:0;margin-top:-.5em;width:100%;text-align:center;
+	font:800 100px/100px "PT Serif",Georgia,Times,"Times New Roman",serif;}
+
+.grid:hover .co-pr{z-index:1;opacity:.97;}
+
+.co .load{opacity:0;
+	transform:scale(.3) rotate(-15deg);
+	-moz-transform:scale(.3) rotate(-15deg);
+	-webkit-transform:scale(.3) rotate(-15deg);}
+
+
+.co-pr,#showImg{transition:.3s ease;}
+
+.VS-more{text-align:center;line-height:3em;}
+
+
+#showImg{position:absolute;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.9);z-index:99;}
+
+#showImg img{position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;max-height:90%;max-width:90%}
+
+#showImg.hide{pointer-events:none;opacity:0;z-index:-1;}

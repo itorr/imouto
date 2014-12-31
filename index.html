@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<script>!function(l,a){if(a=l.search.slice(1))l.href='/#!'+a}(location)</script>
+<meta charset="utf-8">
+<title>imouto -itorr</title>
+<meta name="viewport" content="user-scalable=no,width=720">
+<link rel="stylesheet" href="i/i.css">
+<header>
+	<!--<img src="//ww3.sinaimg.cn/bmiddle/4764ae2ajw1ei0zr5nb05j20gt0gtdik.jpg" onload="this.parentElement.parentElement.className=''">-->
+	<h1><a href="#!home">载入中...</a></h1>
+	<p></p>
+	<!--<a class="weibo" href="//weibo.com/reiove" target="_blank"><i class="i-2v6"></i></a>-->
+</header>
+<ul id="nav"></ul>
+<div id="m"><p class="loading"></p></div>
+
+<xmp id="_nav_">
+{{#c}}
+<li>
+	<a href="#!c/{{id}}" title="{{des}}">{{name}}</a>
+</li>
+{{/c}}
+{{#p}}
+<li>
+	<a href="{{url}}">{{name}}</a>
+</li>
+{{/p}}
+</xmp>
+<xmp id="_home_">
+{{#p}}
+<article class="p">
+	<a href="#!{{pid}}">
+		<h2 class="p-title">{{h1}}</h2>
+		<ul class="p-meta">
+			<!--<li>{{categoryName}}</li>-->
+			<!--<li><a href="#!u/{{authorId}}">{{author}}</a></li>-->
+			<li><time>{{date}}</time></li>
+		</ul>
+		{{#pic}}<div class="cover"><img src="{{pic}}" class="h" onload="this.className=''"></div>{{/pic}}
+	</a>
+	<div class="p-text">{{{html}}}</div>
+</article>
+{{/p}}
+{{^p}}<p class="banner">没有内容惹！ :(</p>{{/p}}
+
+<div id="more"></div>
+</xmp>
+<xmp id="_p_">
+<article class="p">
+	<h2 class="p-title">{{h1}}</h2>
+
+	<ul class="p-meta">
+		<!--<li>{{categoryName}}</li>-->
+		<!--<li><a href="#!u/{{authorId}}">{{author}}</a></li>-->
+		<li><time>{{date}}</time></li>
+	</ul>
+	{{#pic}}<div class="cover"><img src="{{pic}}" class="h" onload="this.className=''"></div>{{/pic}}
+	<div class="p-text">{{{html}}}</div>
+</article>
+
+<div class="DS" data-key="{{pid}}" data-url="http://prinexeword.sinaapp.com/?{{pid}}" data-title="{{h1}}"></div>
+<!--<div class="DS cmt"><p class="loading"></p></div>-->
+
+</xmp>
+<xmp id="_cmt_">
+<form method="post" class="DS-input">
+	<p><input type="text" name="author" title="昵称" class="text" placeholder="小明" required></p>
+	<p><input type="email" name="mail" title="邮箱" class="text" placeholder="@gmail.com" required></p>
+	<p><input type="url" name="url" title="网站" class="text" placeholder="http://"></p>
+	<p><textarea name="text" rows="5" title="评论正文" placeholder="在这里评论哟～" required></textarea></p>
+	<p class="c">
+		<button class="l" type="submit">评论</button>
+		<smile class="DS-smile l"></smile>
+	</p>
+	<input type="hidden" name="pid" value="{{pid}}">
+</form>
+
+<ul class="DS-cmt">
+{{#c}}
+<li id="C-{{cid}}" class="C-li">
+	<div class="DS-post">
+		{{#url}}
+		<a class="user" href="{{{url}}}" target="_blank">
+			<img class="avatar" src="http://gravatar.duoshuo.com/avatar/{{avatar}}?s=50">
+			{{author}}
+		</a>
+		{{/url}}
+		{{^url}}
+		<span class="user">
+			<img class="avatar" src="http://gravatar.duoshuo.com/avatar/{{avatar}}?s=50">	
+			{{author}}
+		</span>
+		{{/url}}
+		<span class="agent">{{ua}}</span>
+		<p class="msg">{{{html}}}</p>	
+		<div class="ctrl">
+			<span>{{date}}</span>
+			<span class="fo" data-name="{{author}}">回应</span>
+		</div>
+	</div>
+</li>
+{{/c}}
+{{^c}}<li class="banner">沙发还在！ :(</li>{{/c}}
+</ul>
+</xmp>
+<script src="inf.js"></script>
+<script src="i/itorr.m.js"></script>
+<script src="i/md/md.js"></script>
+<script src="i/mustache.js"></script>
+<script src="i/c.js"></script>
