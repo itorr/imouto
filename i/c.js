@@ -277,8 +277,6 @@ Q=function($,win,doc){
 				laHash=location.hash;
 			}
 		},100);
-
-	setTimeout(function(){$.j('i/stat.js')},100);
 	console.log('ヾ(≧∇≦)〃可能是世界最快博客 v2 @卜卜口<mouto.sinaapp.com> 2014/08/30');
 	/*这行注释的意义在于，愿看到代码的能保留上面一行 OAQ */
 	return Q
