@@ -62,22 +62,3 @@ CREATE TABLE IF NOT EXISTS `imouto_comments` (
   KEY `cid` (`pid`),
   KEY `created` (`created`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18608 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `imouto_stats`
---
-
-CREATE TABLE IF NOT EXISTS `imouto_stats` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `unix` int(12) NOT NULL,
-  `data` varchar(200) NOT NULL,
-  `url` varchar(200) NOT NULL,
-  `hash` varchar(30) NOT NULL,
-  `referer` varchar(200) NOT NULL,
-  `cookie` varchar(200) NOT NULL,
-  `ip` varchar(15) NOT NULL,
-  `agent` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7814 ;
