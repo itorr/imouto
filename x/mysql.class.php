@@ -101,7 +101,7 @@ class SaeMysql{
 	 * @return string 
 	 */
 	public function escape($str){
-		return mysql_real_escape_string($str);//$this->db(),
+		return addslashes($str);//$this->db(),
 	}
  
 	/**
