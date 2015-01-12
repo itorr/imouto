@@ -62,3 +62,5 @@
 
 - [卜卜口](http://mouto.org)
 - [脑洞の开无人能挡](http://imoe.in)
+- [亲爱的伊凡](http://annnn.sinaapp.com)
+- [rAnChO](https://rcrc.sinaapp.com)
