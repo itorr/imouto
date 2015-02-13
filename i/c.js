@@ -154,7 +154,7 @@ Q=function($,win,doc){
 				window.scrollTo(0,$('#m').offsetTop);
 
 
-				if(!DS.id){
+				if(!DS_cfg.id){
 					
 					if(window.cmt)
 						cmt.load(i);
