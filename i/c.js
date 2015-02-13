@@ -146,16 +146,13 @@ Q=function($,win,doc){
 				o.author=INF.u[o.authorId];
 				o.date=$.re_date(o.created);
 
-
 				return o;
 			},function(h){
 				M.innerHTML=h;
 
 				window.scrollTo(0,$('#m').offsetTop);
 
-
 				if(!DS_cfg.id){
-					
 					if(window.cmt)
 						cmt.load(i);
 					else
@@ -163,7 +160,6 @@ Q=function($,win,doc){
 							cmt.load(i);
 						});
 				}else{
-
 					if(window.DS&&DS.load)
 						DS.load();
 					else
@@ -281,5 +277,3 @@ Q=function($,win,doc){
 	/*这行注释的意义在于，愿看到代码的能保留上面一行 OAQ */
 	return Q
 }(iTorr,window,document);
-
-
