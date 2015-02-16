@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `imouto_article` (
   `look` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`pid`),
   KEY `created` (`created`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54089 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
 
 -- --------------------------------------------------------
 
@@ -61,4 +61,4 @@ CREATE TABLE IF NOT EXISTS `imouto_comments` (
   PRIMARY KEY (`cid`),
   KEY `cid` (`pid`),
   KEY `created` (`created`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18608 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
