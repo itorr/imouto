@@ -1,5 +1,7 @@
 /* <i.mouto.org> 搜索部分 @卜卜口 */
 !function($){
+
+$.lcss('i/search.css');
 var 
 S=$('#S'),
 Si=S.s,
@@ -48,5 +50,6 @@ Si.onblur=function(){
 			Sl.className='h'
 	},200)
 }
+
 }($);
 /*搜索 End*/
