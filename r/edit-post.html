@@ -82,7 +82,7 @@ $('#pr-btn').onclick=function(){
 	var w=window.open('','_blank','');
 	w.document.open('text/html','replace');
 	w.opener=null;
-	var b=location.href.match(/^[\w\:\/]+/);
+	var b=location.href.split("/r/")[0]+"/";
 	w.document.write('<!DOCTYPE html>\
 <link rel="stylesheet" href="'+b+'i/md/md.css">\
 <link rel="stylesheet" href="'+b+'~/pr.css"><h1>'+F.title.value+'</h1><div id="p">\
