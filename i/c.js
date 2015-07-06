@@ -83,7 +83,7 @@ Q=function($,win,doc){
 				return r;
 			},function(h){
 				M.innerHTML=h;
-
+				$.j('f/search.js');
 
 				if(h.length>300&&ppp&&ppp.length==5)
 					if(c)
