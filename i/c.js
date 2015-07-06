@@ -83,7 +83,7 @@ Q=function($,win,doc){
 				return r;
 			},function(h){
 				M.innerHTML=h;
-				$.j('f/search.js');
+				$.j('i/search.js');
 
 				if(h.length>300&&ppp&&ppp.length==5)
 					if(c)
@@ -205,7 +205,7 @@ Q=function($,win,doc){
 				});
 		return {
 			c:c,
-			p:[/*
+			p:[/* 去掉这里的注释可以在 nav 上添加一项导航
 				{
 					name:'VSCO',
 					url:'#!vsco'
