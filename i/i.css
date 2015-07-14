@@ -51,7 +51,7 @@ article{padding:1em 0;}
 .cover img{max-width:100%;display:inline-block;border-radius:.5em;}
 .cover img.h{min-height:300px;}
 
-
+.p-text{word-wrap:break-word;word-break:normal;}
 .p-text h3{padding:2em 10px 1em;font-size:1.5em;}
 .p-text h4{padding:1em 10px 0;font-size:1.3em;}
 
@@ -82,6 +82,8 @@ article{padding:1em 0;}
 #m .DS form p{padding:5px 0;}
 .text{border:1px solid #FFF;background:#EEE;border-radius:.5em;}
 #m .text,#m .DS textarea{padding:.3em .5em;margin:0;display:block;}
+
+
 
 xmp{display:none;}
 
