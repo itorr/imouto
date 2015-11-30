@@ -1,7 +1,7 @@
 
 /*搜索部分样式*/
 
-#S{position:relative;margin:0 auto;max-width:1200px;}
+#S{font-size:14px;position:relative;margin:0 auto;max-width:1200px;}
 #S .I{position:relative;margin:2em;}
 #S input{border:0;padding:.5em 1em .5em 2em;width:100%;
 	-moz-box-sizing:border-box;
