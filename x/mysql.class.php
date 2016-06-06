@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class SaeMysql{
 
@@ -6,8 +6,8 @@ class SaeMysql{
 	public function runSql($sql){
 		$db=$this->db();
 		
-		$result=mysql_query($sql,$db);
-		$this->save_error($db);
+		$result=$db->query($sql);
+      	        $this->save_error($db);
 		return $result;
 	}
 
@@ -17,20 +17,19 @@ class SaeMysql{
 
 		$db=$this->db();
 		
-		$result=mysql_query($sql,$db);
-		$this->save_error($db);
-
+		$result=$db->query($sql);
+		$sth = $db->prepare($sql); 
+		$sth->execute(); 
 		if(is_bool($result))
 			return $result;
 
 		if($type==1)
-			while($a=mysql_fetch_array($result,MYSQL_ASSOC))
+			while($a = $sth->fetch(PDO::FETCH_ASSOC))
 				$data[]=$a;
 		elseif($type==2)
-			while($a=mysql_fetch_row($result))
+			while($a = $sth->fetch(PDO::FETCH_BOTH))
 				$data[]=$a;
 			
-		mysql_free_result($result);
 		if($data)
 			return $data;
 		else
@@ -72,7 +71,7 @@ class SaeMysql{
 	 * @author Elmer Zhang
 	 */
 	public function affectedRows(){
-		return mysql_affected_rows($this->db());
+		return $this->db()->rowCount();
 	}
  
 	/**
@@ -81,7 +80,7 @@ class SaeMysql{
 	 * @return int 成功返回last_id,失败时返回false
 	 */
 	public function lastId(){
-		return mysql_insert_id($this->db());
+		return $this->db()->lastInsertId();
 	}
  
 	/**
@@ -90,8 +89,7 @@ class SaeMysql{
 	 * @return bool 
 	 */
 	public function closeDb(){
-		if(isset($this->db))
-			@mysql_close($this->db);
+		$this->db = null;
 	}
  
 	/**
@@ -101,7 +99,7 @@ class SaeMysql{
 	 * @return string 
 	 */
 	public function escape($str){
-		return addslashes($str);//$this->db(),
+		return $str;//$this->db(),
 	}
  
 	/**
@@ -134,24 +132,29 @@ class SaeMysql{
 			$user='root';
 			$pwd='root';
 		}
-
-		$db=mysql_connect($host,$user,$pwd,true);
-		mysql_select_db($dbname,$db);
-		mysql_set_charset('utf8',$db);
-
+		$params = array (
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'' ,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        );
+	        try{
+	            $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';port=3306', $user, $pwd,$params);
+	        }catch(PDOException $e){
+	            $e->getMessage();
+	            die();
+	        }
 		return $db;
 	}
 
 	private function db(){
-		if(!isset($this->db)||!mysql_ping($this->db))
+		if(!isset($this->db))
 			$this->db=$this->connect();
 
 		return $this->db;
 	}
 
 	private function save_error($db){
-		$this->error=mysql_error($db);
-		$this->errno=mysql_errno($db);
+	        $this->error=$db->errorInfo();
+	        $this->errno=$db->errorCode();
 	}
 }
 $sql=new SaeMysql();
