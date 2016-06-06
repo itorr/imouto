@@ -7,7 +7,7 @@ class SaeMysql{
 		$db=$this->db();
 		
 		$result=$db->query($sql);
-      	$this->save_error($db);
+      	        $this->save_error($db);
 		return $result;
 	}
 
@@ -136,12 +136,12 @@ class SaeMysql{
                 PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'' ,
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         );
-        try{
-            $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';port=3306', $user, $pwd,$params);
-        }catch(PDOException $e){
-            $e->getMessage();
-            die();
-        }
+	        try{
+	            $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';port=3306', $user, $pwd,$params);
+	        }catch(PDOException $e){
+	            $e->getMessage();
+	            die();
+	        }
 		return $db;
 	}
 
@@ -153,8 +153,8 @@ class SaeMysql{
 	}
 
 	private function save_error($db){
-        $this->error=$db->errorInfo();
-        $this->errno=$db->errorCode();
+	        $this->error=$db->errorInfo();
+	        $this->errno=$db->errorCode();
 	}
 }
 $sql=new SaeMysql();
