@@ -14,12 +14,15 @@ var UP=function($){
 		pace.id='pace';
 		$.D.a(pace);
 	}
-	/*
-	_html.ondragenter=function(e){_html.className='drop';};
-	_html.ondragleave=function(e){_html.className='';};
-	*/
+
+	_html.onmouseout=function(e){
+		$('#co').className='';
+	};
+
 	_html.ondragover=function(e){
 		e.preventDefault();
+		$('#co').className='drop';
+
 	};
 	_html.ondrop=function(e){
 		e.preventDefault();
