@@ -60,7 +60,33 @@ button.text{cursor:pointer;}
 button.text.b{background:#069;color:#FFF;}
 button.text.r:hover{background:#900;color:#FFF;}
 
+#co{
+	display: block;
+	color: rgba(0,0,0,0);
+}
 
+.drop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100000;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.drop:before{
+	content: '将图片拖放到此处';
+	position: fixed;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	margin-top: -0.5em;
+	color: #FFFFFF;
+	font-style: normal;
+	font-size: 2em;
+}
 
 #p ul{padding:1em 0;}
 #p li{padding:.5em 0;}

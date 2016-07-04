@@ -134,7 +134,7 @@ Q=function($,win,doc){
 					o.html=C.makeHtml(!o.cover?$.ex(o.text)
 						//.replace(/<!--more-->/,'<a href="#!'+o.pid+'">查看更多…</a>')
 						.replace(/(<img.+src="|!\[.+\]\()http\:\/\/[0-9A-Za-z\/.#&!?%:;=_\-]+\.(?:gif|jpg|jpeg|png)(.+?>|\))/,''):$.ex(o.text));
-					
+
 				o.categoryName=INF.c[o.category][0];
 
 				var A;
@@ -194,7 +194,18 @@ Q=function($,win,doc){
 	};
  	Q.page=Q.home;
 
- 	$('#nav').innerHTML=Mustache.render($('#_nav_').innerHTML,function(){
+	if(INF.av!==''){$('#av').css('display:block');$('#av').src = INF.av};
+	$('#na').innerText = INF.n;
+
+	if (hitokoto.t)
+		$.x(hitokoto.api,function(d){
+			$('#t').innerText = d.text.enTxt()
+		})
+	else
+		$('#t').innerText = INF.t
+
+
+	$('#nav').innerHTML=Mustache.render($('#_nav_').innerHTML,function(){
 		var c=[];
 		for(var i in INF.c)
 			if(i&&INF.c[i][1])
@@ -205,19 +216,14 @@ Q=function($,win,doc){
 				});
 		return {
 			c:c,
-			p:[/* 去掉这里的注释可以在 nav 上添加一项导航
-				{
-					name:'VSCO',
-					url:'#!vsco'
-				}
-			*/]
+			p:INF.p
 		}
 	}());
 
  	var Title=document.title//+=' - '+$('p').innerHTML;
 
 	var laHash='简直惨惨惨OAQ',popstate=function(){
-		
+
 		if('onhashchange' in win)win.onhashchange=popstate;
 
 		if(laHash==location.hash)
