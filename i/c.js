@@ -194,7 +194,7 @@ Q=function($,win,doc){
 	};
  	Q.page=Q.home;
 
-	if(INF.av!==''){$('#av').css('display:block');$('#av').src = INF.av};
+	if(INF.av!==''){$.css($('#av'),'display:block');$('#av').src = INF.av};
 	$('#na').innerText = INF.n;
 
 	if (hitokoto.t)
@@ -202,7 +202,7 @@ Q=function($,win,doc){
 			$('#t').innerText = d.text.enTxt()
 		})
 	else
-		$('#t').innerText = INF.t
+		$('#t').innerText = INF.t;
 
 
 	$('#nav').innerHTML=Mustache.render($('#_nav_').innerHTML,function(){
