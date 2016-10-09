@@ -279,7 +279,7 @@ Q=function($,win,doc){
 				laHash=location.hash;
 			}
 		},100);
-	console.log('ヾ(≧∇≦)〃可能是世界最快博客 v2 @卜卜口<mouto.sinaapp.com> 2014/08/30');
+	console.log('\n %c ヾ(≧∇≦)〃可能是世界最快博客 v2 %c @卜卜口<mouto.sinaapp.com> 2014/08/30 \n\n','color:#444;background:#eee;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#eee;background:#444;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 	/*这行注释的意义在于，愿看到代码的能保留上面一行 OAQ */
 	return Q
 }(iTorr,window,document);
