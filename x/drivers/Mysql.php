@@ -10,12 +10,14 @@ class DB_Mysql implements DB_driver
 {
     private $db='';
     private $host;
+    private $port;
     private $user;
     private $pwd;
     private $dbname;
 
-    public function __construct($host, $user, $pwd, $dbname){
+    public function __construct($host, $port,$user, $pwd, $dbname){
         $this->host = $host;
+        $this->port = $port;
         $this->user = $user;
         $this->pwd = $pwd;
         $this->dbname = $dbname;
@@ -23,7 +25,7 @@ class DB_Mysql implements DB_driver
     }
 
     public function connect(){
-        $db=mysql_connect($this->host,$this->user,$this->pwd,true);
+        $db=mysql_connect($this->host.':'.$this->port,$this->user,$this->pwd,true);
         mysql_select_db($this->dbname,$db);
         mysql_set_charset('utf8',$db);
         return $db;
@@ -46,7 +48,7 @@ class DB_Mysql implements DB_driver
         $this->save_error($db);
         return $result;
     }
-    
+
     /*运行Sql,以多维数组方式返回结果集*/
     public function getData($sql,$type=1){
         $data=Array();
@@ -152,7 +154,7 @@ class DB_Mysql implements DB_driver
             $this->db=$this->connect();
         return $this->db;
     }
-    
+
     private function save_error($db){
         $this->error=mysql_error($db);
         $this->errno=mysql_errno($db);
