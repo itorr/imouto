@@ -80,8 +80,8 @@
 - [卜卜口](http://mouto.org)
 - [镜花水月](https://49.gs)
 - [蔡锶铎](http://caisiduo.xyz)
-- [小铭の驿站](http://ming-app.smartgslb.com)
-- [小熊'博客](http://kloli.tk)
+- [小铭の驿站](http://ming-app.smartgslb.com) [hostker]
+- [小熊'博客](http://kloli.tk) [openshift]
 
 
 ##交流
