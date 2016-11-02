@@ -8,7 +8,7 @@
 ##关于妹blog
 
 妹blog是一个 充分的利用缓存、模板、模块化、静态化 以及不同以往的框架结构 实现 快速、明确、极简 呈现内容为主的博客程序。
- 
+
 
 - **iTorr.JS** 框架
 - **Q.JS** (依托iTorr.JS的前后端分离的单页路由)
@@ -83,10 +83,10 @@
 ##演示地址
 
 - [卜卜口](http://mouto.org)
-- [脑洞の开无人能挡](http://imoe.in)
-- [亲爱的伊凡](http://annnn.sinaapp.com)
-- [rAnChO](https://rcrc.sinaapp.com)
 - [镜花水月](https://49.gs)
+- [蔡锶铎](http://caisiduo.xyz)
+- [小铭の驿站](http://ming-app.smartgslb.com) [hostker]
+- [小熊'博客](http://kloli.tk) [openshift]
 
 
 ##交流

@@ -10,12 +10,14 @@ class DB_PDO implements DB_driver
 {
     private $db='';
     private $host;
+    private $port;
     private $user;
     private $pwd;
     private $dbname;
 
-    public function __construct($host, $user, $pwd, $dbname){
+    public function __construct($host, $port, $user, $pwd, $dbname){
         $this->host = $host;
+        $this->port = $port;
         $this->user = $user;
         $this->pwd = $pwd;
         $this->dbname = $dbname;
@@ -25,10 +27,10 @@ class DB_PDO implements DB_driver
     public function connect(){
         $params = array (
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'' ,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
         try{
-            $db = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname.';port=3306', $this->user, $this->pwd,$params);
+            $db = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname.';port='.$this->port, $this->user, $this->pwd,$params);
         }catch(PDOException $e){
             $e->getMessage();
             die();
