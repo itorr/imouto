@@ -75,6 +75,11 @@
 ####@Ylune **16-07-04**
 集中可自定义内容
 
+##风格模板
+
+- [V1](https://github.com/ylune/imouto-theme)
+- [V2](https://github.com/ylune/imouto-theme-2)
+
 ##演示地址
 
 - [卜卜口](http://mouto.org)
