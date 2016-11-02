@@ -83,11 +83,10 @@
 ##演示地址
 
 - [卜卜口](http://mouto.org)
-- [脑洞の开无人能挡](http://imoe.in)
-- [亲爱的伊凡](http://annnn.sinaapp.com)
-- [rAnChO](https://rcrc.sinaapp.com)
-- [镜花水月](https://49.gs)
-
+- [秋梦](https://49.gs)
+- [蔡锶铎](http://caisiduo.xyz)
+- [小铭の驿站](http://ming-app.smartgslb.com)
+- [小熊博客](http://kloli.tk)
 
 ##交流
 
