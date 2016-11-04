@@ -78,7 +78,7 @@
 ##风格模板
 
 - [V1](https://github.com/ylune/imouto-theme)
-- [V2](https://github.com/ylune/imouto-theme-2)
+- [V2](https://github.com/ylune/imouto-theme-v2)
 
 ##演示地址
 
