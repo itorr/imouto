@@ -83,9 +83,7 @@
 ##演示地址
 
 - [卜卜口](http://mouto.org)
-- [秋梦](https://49.gs)
 - [蔡锶铎](http://caisiduo.xyz)
-- [小铭の驿站](http://ming-app.smartgslb.com)
 - [小熊博客](http://kloli.tk)
 - [折影轻梦](http://i.chainwon.com/)
 
