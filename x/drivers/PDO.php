@@ -131,7 +131,7 @@ class DB_PDO implements DB_driver
      * @return string
      */
     public function escape($str){
-        return $str;//$this->db,
+        return addslashes($str);//$this->db,
     }
 
     /**
