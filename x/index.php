@@ -1,5 +1,7 @@
 <?php
 
+mb_internal_encoding('UTF-8');
+
 function err($i){
 	//exit($i);
 	header('Content-type: application/json;charset=utf-8');

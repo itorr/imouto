@@ -195,7 +195,7 @@ Q=function($,win,doc){
  	Q.page=Q.home;
 
 	if(INF.av!==''){$.css($('#av'),'display:block');$('#av').src = INF.av};
-	$('#na').innerText = INF.n;
+	$('#na a').innerText = INF.n;
 
 	if (hitokoto.t)
 		$.x(hitokoto.api,function(d){
