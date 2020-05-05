@@ -84,7 +84,7 @@
 
 - [卜卜口](http://mouto.org)
 - [蔡锶铎](http://caisiduo.xyz)
-- [小熊博客](http://narberal.applinzi.com/im2/)
+- [小熊博客](https://yukimax.org/im2/)
 - [折影轻梦](http://i.chainwon.com/)
 
 ## 交流
